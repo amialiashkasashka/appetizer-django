@@ -32,3 +32,6 @@ def about(request):
 def menu(request):
     return render(request, 'pages/menu.html') 
 
+
+def reservation(request):
+    return render(request, 'pages/reservation.html')
