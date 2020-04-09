@@ -26,30 +26,30 @@
 		          	<span class="subheading">Book a table</span>
 		            <h2 class="mb-4">Make Reservation</h2>
 		          </div>
-	            <form action="#" method="POST">
-                    {% csrf_token %}
+	            <form action="" method="POST">
+                {% csrf_token %}
 	              <div class="row">
 	                <div class="col-md-6">
 	                  <div class="form-group">
 	                    <label for="">Name</label>
-	                    <input type="text" class="form-control" placeholder="Your Name">
+	                    <input type="text" class="form-control" placeholder="Your Name" {% if user.is_authenticated %} value="{{ user.first_name }}" {% endif %} required>
 	                  </div>
 	                </div>
 	                <div class="col-md-6">
 	                  <div class="form-group">
 	                    <label for="">Email</label>
-	                    <input type="text" class="form-control" placeholder="Your Email">
+	                    <input type="text" class="form-control" placeholder="Your Email" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
 	                  </div>
 	                </div>
 	                <div class="col-md-6">
 	                  <div class="form-group">
 	                    <label for="">Phone</label>
-	                    <input type="text" class="form-control" placeholder="Phone">
+	                    <input type="text" class="form-control" placeholder="Phone" required>
 	                  </div>
 	                </div>
 	                <div class="col-md-6">
 	                  <div class="form-group">
-	                    <label for="">Phone</label>
+	                    <label for="">Date</label>
 	                    <input type="text" class="form-control" id="book_date" placeholder="Date">
 	                  </div>
 	                </div>

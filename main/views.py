@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 
 from .models import Menu, Category, Chefs
+
 
 # Create your views here.
 def index(request):
