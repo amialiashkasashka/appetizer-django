@@ -36,3 +36,7 @@ def menu(request):
 
 def reservation(request):
     return render(request, 'pages/reservation.html')
+
+def contact(request):
+    return render(request, 'pages/contact.html')
+
