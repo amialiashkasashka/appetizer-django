@@ -20,18 +20,24 @@ def index(request):
     return render(request, 'pages/index.html', context)
 
 
-def about(request):
-    menus = Menu.objects.all().filter(is_on_home_page=True) 
+def about(request): 
     chefs = Chefs.objects.all()
 
     context = {
         'chefs': chefs,
-        'menus': menus,
     }
     return render(request, 'pages/about.html', context)
 
 def menu(request):
-    return render(request, 'pages/menu.html') 
+    menus = Menu.objects.all().filter(is_on_home_page=True)
+    categories = Category.objects.all()
+
+    context = {
+        'menus': menus,
+        'categories': categories,
+    }
+
+    return render(request, 'pages/menu.html', context) 
 
 
 def reservation(request):
