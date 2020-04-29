@@ -11,3 +11,4 @@ class MenuAdmin(admin.ModelAdmin):
 admin.site.register(Category)
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(Chefs)
+admin.site.site_header = 'Appetizer Admin'

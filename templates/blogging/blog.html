@@ -33,7 +33,7 @@
                   <h3 class="heading"><a href="#">{{ blog.title }}</a></h3>
                   <p class="clearfix">
                     <a href="{% url 'blogsingle' blog.id %}" class="float-left read">Read more</a>
-                    <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> 3</a>
+                    <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> {{ comments.count }}</a>
                   </p>
                 </div>
               </div>

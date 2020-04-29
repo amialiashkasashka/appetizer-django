@@ -10,4 +10,4 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'header')    
 
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(Booking, BookingAdmin)    
+admin.site.register(Booking, BookingAdmin)   

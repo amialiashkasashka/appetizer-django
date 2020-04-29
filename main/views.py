@@ -6,7 +6,6 @@ from .models import Menu, Category, Chefs
 
 # Create your views here.
 def index(request):
-
     menus = Menu.objects.all().filter(is_on_home_page=True) 
     chefs = Chefs.objects.all()
     categories = Category.objects.all()
