@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'l@d5my#x!!dlrmy0$v8dybb48c^j)-6fp&hvfz*dfxbtidi#kb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', 'https://ao-appetizer.herokuapp.com/']
 
 
 # Application definition
