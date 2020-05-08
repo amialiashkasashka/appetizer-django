@@ -1,1 +1,1 @@
-web: gunicorn Appetizer.wsgi --log--file -
+web: gunicorn Appetizer.wsgi --log-file -
