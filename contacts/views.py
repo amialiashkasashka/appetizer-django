@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Booking, Contact
+from .models import Booking, Contact, subscribtion
 from django.contrib import messages
-from django.core.mail import send_mail
+from django.core.mail import send_mail, send_mass_mail
 
 # Create your views here.
 def booking(request):
@@ -51,3 +51,34 @@ def contacting(request):
         messages.success(request, 'Thanks for your message!')
 
         return redirect('contact')
+
+
+def subscribe(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+
+        sub = subscribtion(email=email)
+        sub.save()
+
+        messages.success(request, 'Thanks, sub!')
+        return redirect('index')
+
+
+
+def mailing(request):
+
+    subscribers = subscribtion.objects.all()
+    arr = list(subscribers) 
+
+    if request.method == 'POST':
+        message = request.POST['message']
+
+        send_mail(
+            'It`s Appetizer!',
+            f'{message}',
+            'sanyok200092@gmail.com',
+            arr,
+            fail_silently=False,
+        )  
+
+        return redirect('/admin')    

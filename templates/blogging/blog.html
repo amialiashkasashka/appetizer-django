@@ -33,7 +33,7 @@
                   <h3 class="heading"><a href="#">{{ blog.title }}</a></h3>
                   <p class="clearfix">
                     <a href="{% url 'blogsingle' blog.id %}" class="float-left read">Read more</a>
-                    <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> {{ comments.count }}</a>
+                    <a href="#" class="float-right meta-chat"><span class="icon-chat"></span> {{ blog.comments.count }}</a>
                   </p>
                 </div>
               </div>
@@ -44,15 +44,27 @@
         <div class="row no-gutters my-5">
           <div class="col text-center">
             <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
+              {% if blog_post.has_other_pages %}
+                <ul>
+                  {% if blog_post.has_previous %}
+                    <li><a href="?page={{ blog_post.previous_page_number }}">&lt;</a></li>
+                  {% else %}
+                    <li class="disabled"><a>&lt;</a></li>  
+                  {% endif %}
+                  {% for i in blog_post.paginator.page_range %}
+                    {% if blog_post.number == i %}
+                      <li class="active"><a>{{ i }}</a></li>
+                    {% else %}
+                      <li><a href="?page={{ i }}">{{ i }}</a></li>  
+                    {% endif %}
+                  {% endfor %}
+                  {% if blog_post.has_next%}
+                    <li><a href="?page={{ blog_post.next_page_number }}">&gt;</a></li>
+                  {% else %}
+                    <li class="disabled"><a>&gt;</a></li>  
+                  {% endif %}
+                </ul>
+              {% endif %}
             </div>
           </div>
         </div>

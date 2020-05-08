@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 
 from .models import Menu, Category, Chefs
+from contacts.tasks import send_mail_task
 
 
 # Create your views here.

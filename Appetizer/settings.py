@@ -25,7 +25,7 @@ SECRET_KEY = 'l@d5my#x!!dlrmy0$v8dybb48c^j)-6fp&hvfz*dfxbtidi#kb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -142,3 +142,10 @@ EMAIL_HOST_USER = 'sanyok200092@gmail.com'
 EMAIL_HOST_PASSWORD = 'myBirthday31122000'
 EMAIL_USE_TLS = True
 
+
+#CELERY CONFIG
+
+CELERY_BROKER_URL = 'redis://h:pfbef4c0fd33691ccb3140b3899507c4356489deaeb346232f69ee2d7533d23f5@ec2-34-250-121-43.eu-west-1.compute.amazonaws.com:12159'
+
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
